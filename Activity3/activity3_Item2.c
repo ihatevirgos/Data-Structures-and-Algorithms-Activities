@@ -1,14 +1,14 @@
 #include <stdio.h>
 
 void delete(int array[], int size, int deletePosition){
-    deletePosition -= 1;
+    deletePosition -= 1; //making it 0-based index
 
-    //shift
+    //shift elements to the left 
     for (int index = deletePosition; index < size; index ++){
         array[index] = array[index + 1];
     }
 
-    size--; 
+    size--; //reduce array size
     
 
     //print
@@ -20,7 +20,7 @@ void delete(int array[], int size, int deletePosition){
 }
 
 int main (){
-     printf("===MAXIMUM AND MINIMUM ELEMENT===\n\n");
+     printf("===ARRAY ELEMENT DELETION===\n\n");
 
     int arraySize;
     printf("Input the numner of elements to be storeed in the array: ");
