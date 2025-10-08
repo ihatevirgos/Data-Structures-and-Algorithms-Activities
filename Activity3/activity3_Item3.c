@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//sort array via bubble sort
 void bubbleSort(int array[], int size){
     for (int index = 0; index < size; index ++){
         for (int index2 = 0; index2 < (size - 1 - index); index2 ++){
@@ -11,13 +12,11 @@ void bubbleSort(int array[], int size){
         }
     }
 
-    //print
+    //print updated list
     printf("Elements of array sorted in ascending order (via bubble sorting):\n");
     for (int index = 0; index < size; index ++){
         printf("%d\t", array[index]);
     }
-
-
 }
 
 int main (){
@@ -37,7 +36,6 @@ int main (){
     }
 
     bubbleSort(array, arraySize);
-
 
     return 0;
 }

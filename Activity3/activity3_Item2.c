@@ -1,7 +1,16 @@
 #include <stdio.h>
+#include <ctype.h>
+
+int validatePosition(int position, int size){
+    if (position < 1 || position > size){
+        printf("Invalid position. Please enter a valid position (1 - %d)\n", size);
+        return 0;
+    }
+    return 1;
+}
 
 void delete(int array[], int size, int deletePosition){
-    deletePosition -= 1; //making it 0-based index
+    deletePosition -= 1; //making the position 0-based
 
     //shift elements to the left 
     for (int index = deletePosition; index < size; index ++){
@@ -11,7 +20,7 @@ void delete(int array[], int size, int deletePosition){
     size--; //reduce array size
     
 
-    //print
+    //print udpated list
     printf("Updated list:\n");
     for (int index = 0; index < size; index ++){
         printf("%d\t", array[index]);
@@ -20,7 +29,7 @@ void delete(int array[], int size, int deletePosition){
 }
 
 int main (){
-     printf("===ARRAY ELEMENT DELETION===\n\n");
+    printf("===ARRAY ELEMENT DELETION===\n\n");
 
     int arraySize;
     printf("Input the numner of elements to be storeed in the array: ");
@@ -33,18 +42,16 @@ int main (){
         printf("element - %d: ", index);
         scanf("%d", &array[index]);
     }
-
     
     int deletePosition;
+
     printf("\nInput the position where to delete: ");
     scanf("%d", &deletePosition);
 
-    //checks if input is valid
-    if (deletePosition < 1 || deletePosition > arraySize){
-        printf("Invalid position. Please enter a valid position (1 - %d)\n", arraySize);
-        return 1;
+    if (!validatePosition(deletePosition, arraySize)){
+        return 0;
     }
-
+    
     delete(array, arraySize, deletePosition);
 
     return 0;

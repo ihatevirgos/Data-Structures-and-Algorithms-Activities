@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//getting the greatest element
 int maximum (int array[], int size){
     int maxElement = array[0];
     for (int index = 0; index < size; index ++){
@@ -11,6 +12,7 @@ int maximum (int array[], int size){
     return maxElement;
 }
 
+//getting the least element
 int minimum (int array[], int size){
     int minElement = array[0];
     for (int index = 0; index < size; index ++){
@@ -22,10 +24,9 @@ int minimum (int array[], int size){
     return minElement;
 }
 
-
 int main (){
 
-    printf("===MAXIMUM AND MINIMUM ELEMENT===\n\n");
+    printf("===MAXIMUM & MINIMUM ELEMENT===\n\n");
 
     int arraySize;
     printf("Input the numner of elements to be storeed in the array: ");
@@ -44,7 +45,6 @@ int main (){
 
     printf("Maximum element is: %d\n", maxElement);
     printf("Minimum element is: %d\n", minElement);
-
 
     return 0;
 }
