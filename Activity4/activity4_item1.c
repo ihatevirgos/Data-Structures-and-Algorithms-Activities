@@ -112,7 +112,5 @@ int main(){
     printf("%s + %s = ", number1, number2);
     printList(result);
 
-
-
     return 0;
 }
