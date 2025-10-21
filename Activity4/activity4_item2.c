@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
 
 struct node {
@@ -51,7 +51,7 @@ void printCircularList(struct node* head){
         return;
     }
 
-    printf("\nCircular Linked List: ");
+    printf("\nCircular Linked List:\n");
     int count = 1;
     do {
         printf("data %d = %d\n", count, temp -> data);
