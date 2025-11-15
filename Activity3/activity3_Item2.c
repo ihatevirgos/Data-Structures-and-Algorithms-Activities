@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 
 int validatePosition(int position, int size){
     if (position < 1 || position > size){
