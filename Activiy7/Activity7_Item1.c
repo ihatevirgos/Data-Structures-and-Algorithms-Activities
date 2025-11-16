@@ -377,10 +377,7 @@ void runPerformanceComparison (int* testData, int dataSize, const char* dataSetT
     endTime = clock();
     bstDeletionTime = ((double)(endTime - startTime)) / CLOCKS_PER_SEC;
     printf("BST Deletion Time: %f seconds\n\n", bstDeletionTime);
-    printf("Performance Ratio (BST/AVL) for Insertion, Search, Deletion respectively: \n");
-    printf("Insertion Ratio: %f\n", avlInsertionTime > 0 ? bstInsertionTime / avlInsertionTime : 0);
-    printf("Search Ratio: %f\n", avlSearchTime > 0 ? bstSearchTime / avlSearchTime : 0);
-    printf("Deletion Ratio: %f\n", avlDeletionTime > 0 ? bstDeletionTime / avlDeletionTime : 0);
+
 
     // TEST 4: Tree Structure Analysis
     printf("\n---------------\n");
