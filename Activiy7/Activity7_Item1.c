@@ -45,7 +45,7 @@ treeNode* rightRotation(treeNode* unbalancedNode) {
     unbalancedNode->height = 1 + getMax(getHeight(unbalancedNode->leftChild), getHeight(unbalancedNode->rightChild));
     newRoot->height = 1 + getMax(getHeight(newRoot->leftChild), getHeight(newRoot->rightChild));
 
-    // Return new root
+    // new root becomes the parent node
     return newRoot;
 }
 
@@ -61,7 +61,7 @@ treeNode* leftRotation(treeNode* unbalancedNode) {
     unbalancedNode->height = 1 + getMax(getHeight(unbalancedNode->leftChild), getHeight(unbalancedNode->rightChild));
     newRoot->height = 1 + getMax(getHeight(newRoot->leftChild), getHeight(newRoot->rightChild));
 
-    // Return new root
+    // new root becomes the parent node
     return newRoot;
 }
 
@@ -82,11 +82,10 @@ treeNode* insertAVL(treeNode* rootNode, int value) {
     // Update height of this ancestor node
     rootNode->height = 1 + getMax(getHeight(rootNode->leftChild), getHeight(rootNode->rightChild));
 
-    // Get the balance factor to check whether this node became unbalanced
+    // check if balanced
     int balanceFactor = calculateBalanceFactor(rootNode);
 
     // If the node becomes unbalanced, then there are 4 cases
-
     // Left Left Case
     if (balanceFactor > 1 && value < rootNode->leftChild->value) {
         return rightRotation(rootNode);
@@ -379,9 +378,9 @@ void runPerformanceComparison (int* testData, int dataSize, const char* dataSetT
     bstDeletionTime = ((double)(endTime - startTime)) / CLOCKS_PER_SEC;
     printf("BST Deletion Time: %f seconds\n\n", bstDeletionTime);
     printf("Performance Ratio (BST/AVL) for Insertion, Search, Deletion respectively: \n");
-    printf("Insertion Ratio: %f\n", bstInsertionTime / avlInsertionTime);
-    printf("Search Ratio: %f\n", bstSearchTime / avlSearchTime);
-    printf("Deletion Ratio: %f\n", bstDeletionTime / avlDeletionTime);
+    printf("Insertion Ratio: %f\n", avlInsertionTime > 0 ? bstInsertionTime / avlInsertionTime : 0);
+    printf("Search Ratio: %f\n", avlSearchTime > 0 ? bstSearchTime / avlSearchTime : 0);
+    printf("Deletion Ratio: %f\n", avlDeletionTime > 0 ? bstDeletionTime / avlDeletionTime : 0);
 
     // TEST 4: Tree Structure Analysis
     printf("\n---------------\n");
@@ -393,8 +392,6 @@ void runPerformanceComparison (int* testData, int dataSize, const char* dataSetT
     printf("AVL Tree Height: %d\n", avlHeight);
     printf("BST Height: %d\n", bstHeight);  
     printf("Theoretical Optimal Height (log2(n+1)): %f\n\n\n", theoreticalOptimalHeight);
-
-
 
     // Free allocated memory
     freeTree(bstRoot);
