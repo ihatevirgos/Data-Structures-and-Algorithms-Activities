@@ -55,7 +55,6 @@ struct node* addLinkedList(struct node* list1, struct node* list2){
 //print list
 void printList(struct node* head){
     while (head != NULL){
-        printf("%d", head -> data);
         head = head -> link;
     }
     printf("\n");
